@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from controllers import fruits as controller
-from models.fruit import Fruit
+from models.fruit import Fruit, FruitUpdate
 
 router = APIRouter()
 
@@ -26,6 +26,6 @@ async def put_fruit(index: int, new_fruit: Fruit):
     return results
 
 @router.patch("/{index}")
-async def patch_fruit(index: int, properties: Fruit):
+async def patch_fruit(index: int, properties: FruitUpdate):
     results = controller.update_fruit(index, properties)
     return results
